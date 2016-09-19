@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -44,15 +45,18 @@ func main() {
 
 	for count < MAXCHARS {
 		fmt.Println("Enter a Char") // Enter a value
-		fmt.Scan(&singleChar)
-		if(len(singleChar) > 1){
-			fmt.Println("Enter only one Character")
+		fmt.Scan(&singleChar) // Initialise string with scanned value
+
+		if _, err := strconv.Atoi(singleChar); err == nil { //  If not a character....
+			fmt.Println(singleChar, " Is a number, Enter characters only") // ...throw error
+		}else if len(singleChar) > 1 { // If char size is more than one....
+			fmt.Println("Enter only one Character") // Throw error
 		}else {
-			charVals = append(charVals, singleChar)
-			count++
+			charVals = append(charVals, singleChar) // Append the char to the charVals array
+			count++ // Increment the counter
 		}
 	}
-	fmt.Println("You Entered 4 characters ", charVals)
+	fmt.Println("You Entered 4 characters ", charVals) // Display the Char array in console
 }
 
 

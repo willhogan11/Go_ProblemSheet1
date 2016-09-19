@@ -1,5 +1,8 @@
 package main
-import "fmt"
+
+import (
+	"fmt"
+)
 
 func main() {
 
@@ -18,12 +21,21 @@ func main() {
 	// Problem sheet 1, Question 3
 	/* 3. Write a program that accepts a user inputted string and prints its reverse.*/
 	fmt.Println("The Reverse of entered string is: ", reverseString("Will Hogan"))
+
+
+	// Problem sheet 1, Question 4
+	/* 4. Write a program that takes as input a positive integer and applies the following
+	   operations until the sequence begins to repeat: if the number is even, divide it by 2,
+	   but if the number is odd, multiply it by 3 and add 1. The program should print the
+	   generated sequence to the screen. You might want to consider whether the program
+	   always terminates, and what will happen should the program encounter a 0. */
+	oddEvenArray()
 }
 
 
 // Problem sheet 1, Question 1
 func sumOfMultiples() int{
-	const MAX  = 1000 // Declare a constant value of 1000
+	const MAX = 1000 // Declare a constant value of 1000
 	sum := 0
 
 	for i := 0; i < MAX; i++ { // Loop over the MAX value
@@ -43,4 +55,33 @@ func reverseString(str string) string {
 		runes[i], runes[j] = runes[j], runes[i] // Loop over the array, and reverse the values
 	}
 	return string(runes) // Return the string equivalent of the value enetered.
-}
+} // End Reverse String
+
+
+
+// Problem sheet 1, Question 4
+func oddEvenArray() {
+	const MAX = 15 // Create a Max number entty amount
+	count := 0 // Count
+	num := 0 // The Number to be entered
+	var scanValues bool = true
+	var valueArray []int
+
+	for scanValues && MAX > count { // While The Max Amount has not been enterd into the Array, keep going
+		fmt.Println("Enter a Number") //  Enter a value
+		fmt.Scan(&num) // Initialise num with scanned value
+
+		if (num <= 0) {
+			fmt.Println("Please enter a valid number") // If num is 0 or less, display error
+		} else if (num % 2 == 0) { // If Even..
+			num = (num / 2) // Do this...
+			valueArray = append(valueArray, num) // And append to the Array Result
+			count++ // Increment the count
+		} else if (num % 2 != 0) { // If odd...
+			num = (num * 3 + 1) // Do this....
+			valueArray = append(valueArray, num)// And append to the Array Result
+			count++ // Increment the count
+		}
+	}
+	fmt.Println("Filled Int Array Result: ", valueArray) // Display the result in console
+} // End oddEvenArray

@@ -9,7 +9,7 @@ func main() {
 	// Problem sheet 1, Question 1
 	/* 1. The natural numbers below 10 that are multiples of 3 or 5 are: 3, 5, 6 and 9. The sum
 	   of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000 [1]. */
-	fmt.Println("The Result is: ", sumOfMultiples())
+	//fmt.Println("The Result is: ", sumOfMultiples())
 
 	// W.I.P
 	// Problem sheet 1, Question 2
@@ -20,7 +20,7 @@ func main() {
 
 	// Problem sheet 1, Question 3
 	/* 3. Write a program that accepts a user inputted string and prints its reverse.*/
-	fmt.Println("The Reverse of entered string is: ", reverseString("Will Hogan"))
+	//fmt.Println("The Reverse of entered string is: ", reverseString("Will Hogan"))
 
 
 	// Problem sheet 1, Question 4
@@ -29,7 +29,30 @@ func main() {
 	   but if the number is odd, multiply it by 3 and add 1. The program should print the
 	   generated sequence to the screen. You might want to consider whether the program
 	   always terminates, and what will happen should the program encounter a 0. */
-	oddEvenArray()
+	//oddEvenArray()
+
+
+	// Problem sheet 1, Question 5
+	/* 5. Write a program that accepts four characters as input, and outputs all permutations
+       of those four characters. What should your program do if two or more of the
+       characters are the same? */
+
+	const MAXCHARS =  4
+	var charVals []string
+	singleChar := ""
+	count := 0
+
+	for count < MAXCHARS {
+		fmt.Println("Enter a Char") // Enter a value
+		fmt.Scan(&singleChar)
+		if(len(singleChar) > 1){
+			fmt.Println("Enter only one Character")
+		}else {
+			charVals = append(charVals, singleChar)
+			count++
+		}
+	}
+	fmt.Println("You Entered 4 characters ", charVals)
 }
 
 

@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"strconv"
+	// "math/rand"
+	// "time"
 )
 
 func main() {
@@ -10,8 +12,10 @@ func main() {
 	// Problem sheet 1, Question 1
 	/* 1. The natural numbers below 10 that are multiples of 3 or 5 are: 3, 5, 6 and 9. The sum
 	   of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000 [1]. */
-	//fmt.Println("The Result is: ", sumOfMultiples())
+	fmt.Println("The Result is: ", sumOfMultiples())
 
+
+	
 	// W.I.P
 	// Problem sheet 1, Question 2
 	/* 2. The first six prime numbers in order are 2, 3, 5, 7, 11, and 13. So, for instance, the
@@ -19,9 +23,11 @@ func main() {
 	// const MAX  = 10001
 
 
+
 	// Problem sheet 1, Question 3
 	/* 3. Write a program that accepts a user inputted string and prints its reverse.*/
-	//fmt.Println("The Reverse of entered string is: ", reverseString("Will Hogan"))
+	fmt.Println("The Reverse of entered string is: ", reverseString("Will Hogan"))
+
 
 
 	// Problem sheet 1, Question 4
@@ -30,9 +36,11 @@ func main() {
 	   but if the number is odd, multiply it by 3 and add 1. The program should print the
 	   generated sequence to the screen. You might want to consider whether the program
 	   always terminates, and what will happen should the program encounter a 0. */
-	//oddEvenArray()
+	oddEvenArray()
 
 
+
+	// W.I.P
 	// Problem sheet 1, Question 5
 	/* 5. Write a program that accepts four characters as input, and outputs all permutations
        of those four characters. What should your program do if two or more of the
@@ -51,12 +59,41 @@ func main() {
 			fmt.Println(singleChar, " Is a number, Enter characters only") // ...throw error
 		}else if len(singleChar) > 1 { // If char size is more than one....
 			fmt.Println("Enter only one Character") // Throw error
+		}else if (contains(charVals, singleChar) ==  true ){ // Check if the current value entered already exists in the array
+			fmt.Println("You've already entered that character") // If so throw error message
 		}else {
 			charVals = append(charVals, singleChar) // Append the char to the charVals array
 			count++ // Increment the counter
 		}
 	}
 	fmt.Println("You Entered 4 characters ", charVals) // Display the Char array in console
+
+	// Smaller Array Shuffle, need to use Rand Seed, See below shuffle function
+		/*arr := []string{"A", "B", "C", "D"}
+		fmt.Println(arr)
+		shuffle(arr)
+		fmt.Println(arr)*/
+}
+
+
+// Function to shuffle array, W.I.P
+/*func shuffle(arr []string) {
+	// rand.Seed(time.Nanosecond) // Not working...
+	for i := len(arr) - 1; i > 0; i-- {
+		j := rand.Int31n(i + 1)
+		arr[i], arr[j] = arr[j], arr[i]
+	}
+}*/
+
+
+// Function to check if value already exists in the array in Question 5
+func contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
 }
 
 

@@ -1,3 +1,8 @@
+// Author: Will Hogan
+// Date: 29/09/2016
+// Module: Emerging Technologies
+// Details: Problem Sheet 1, Programming language 'GO'
+
 package main
 
 import (
@@ -15,7 +20,7 @@ func main() {
 	fmt.Println("The Result is: ", sumOfMultiples())
 
 
-	
+
 	// W.I.P
 	// Problem sheet 1, Question 2
 	/* 2. The first six prime numbers in order are 2, 3, 5, 7, 11, and 13. So, for instance, the
@@ -36,7 +41,9 @@ func main() {
 	   but if the number is odd, multiply it by 3 and add 1. The program should print the
 	   generated sequence to the screen. You might want to consider whether the program
 	   always terminates, and what will happen should the program encounter a 0. */
-	oddEvenArray()
+
+	oddEvenArray() // My Version
+	collatz(200) // Ian's Version from Lab
 
 
 
@@ -123,7 +130,7 @@ func reverseString(str string) string {
 
 
 
-// Problem sheet 1, Question 4
+// Problem sheet 1, Question 4 (Collatz Conjecture)
 func oddEvenArray() {
 	const MAX = 15 // Create a Max number entty amount
 	count := 0 // Count
@@ -149,3 +156,18 @@ func oddEvenArray() {
 	}
 	fmt.Println("Filled Int Array Result: ", valueArray) // Display the result in console
 } // End oddEvenArray
+
+
+// This function iterates over a postive 'n' until sequesnce repeats
+// At each iteration n is divided by 2 if it's even otherwise it's X 3 and 1 is added
+func collatz(n uint) {
+	for ; n != 1; {
+		fmt.Print(n, " ")
+		if n % 2 == 0 {
+			n = n / 2
+		} else {
+			n = (3 * n) + 1
+		}
+	}
+	fmt.Println(n)
+}
